@@ -1,0 +1,6 @@
+FROM quay.io/pypa/manylinux1_x86_64
+MAINTAINER Python Cryptographic Authority
+ADD scripts/ /root/scripts
+WORKDIR /root/scripts
+RUN sh install_libffi.sh
+RUN sh install_openssl.sh x86_64
