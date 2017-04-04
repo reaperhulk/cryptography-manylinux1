@@ -2,8 +2,8 @@
 set -xe
 
 OPENSSL_URL="ftp://ftp.openssl.org/source"
-OPENSSL_NAME="openssl-1.0.2h"
-OPENSSL_SHA256="1d4007e53aad94a5b2002fe045ee7bb0b3d98f1a47f8b2bc851dcd1c74332919"
+OPENSSL_NAME="openssl-1.0.2k"
+OPENSSL_SHA256="6b3977c61f2aedf0f96367dcfb5c6e578cf37e7b8d913b4ecb6643c3cb88d8c0"
 
 function check_sha256sum {
     local fname=$1
