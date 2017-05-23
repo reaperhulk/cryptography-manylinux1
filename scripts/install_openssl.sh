@@ -1,9 +1,9 @@
 #!/bin/bash
 set -xe
 
-OPENSSL_URL="ftp://ftp.openssl.org/source"
-OPENSSL_NAME="openssl-1.0.2h"
-OPENSSL_SHA256="1d4007e53aad94a5b2002fe045ee7bb0b3d98f1a47f8b2bc851dcd1c74332919"
+OPENSSL_URL="https://www.openssl.org/source/"
+OPENSSL_NAME="openssl-1.1.0e"
+OPENSSL_SHA256="57be8618979d80c910728cfc99369bf97b2a1abd8f366ab6ebdee8975ad3874c"
 
 function check_sha256sum {
     local fname=$1
@@ -16,6 +16,7 @@ function check_sha256sum {
 curl -#O ${OPENSSL_URL}/${OPENSSL_NAME}.tar.gz
 check_sha256sum ${OPENSSL_NAME}.tar.gz ${OPENSSL_SHA256}
 tar zxvf ${OPENSSL_NAME}.tar.gz
+PATH=/opt/perl/bin:$PATH
 cd ${OPENSSL_NAME}
 if [[ $1 == "x86_64" ]]; then
     echo "Configuring for x86_64"

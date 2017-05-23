@@ -2,5 +2,9 @@ FROM quay.io/pypa/manylinux1_x86_64
 MAINTAINER Python Cryptographic Authority
 ADD scripts/ /root/scripts
 WORKDIR /root/scripts
-RUN sh install_libffi.sh
+ADD https://www.cpan.org/src/5.0/perl-5.24.1.tar.gz .
+RUN tar zxf perl-5.24.1.tar.gz && \
+    cd perl-5.24.1 && \
+    ./Configure -des -Dprefix=/opt/perl && \
+    make -j4 && make install
 RUN sh install_openssl.sh x86_64

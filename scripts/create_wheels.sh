@@ -2,8 +2,10 @@
 set -x -e
 
 for PYBIN in /opt/python/*/bin; do
+    ${PYBIN}/pip install cffi
     ${PYBIN}/pip wheel cryptography -w wheelhouse/
 done
+exit
 
 for whl in wheelhouse/cryptography*.whl; do
     auditwheel repair $whl -w /build/wheelhouse/
